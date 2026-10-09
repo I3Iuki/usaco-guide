@@ -2,13 +2,13 @@
 #include <set>
 #include <string>
 #include <algorithm>
-
+ 
 using namespace std;
-
+ 
 // aabac
 string input;
 set<string> results;
-
+ 
 void recurse(set<int> used, string s)
 {
     if (s.size() == input.size())
@@ -16,7 +16,7 @@ void recurse(set<int> used, string s)
         results.insert(s);
         return;
     }
-
+ 
     for (int i = 0; i < input.size(); ++i)
     {
         if (used.find(i) != used.end())
@@ -31,15 +31,15 @@ void recurse(set<int> used, string s)
         }
     }
 }
-
+ 
 int main()
 {
     cin >> input;
-
+ 
     recurse(set<int>{}, "");
-
+ 
     cout << results.size() << '\n';
-
+ 
     for (const string &booyeah : results)
     {
         cout << booyeah << '\n';
