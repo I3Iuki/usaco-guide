@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 
+
 using namespace std;
 
 int main() {
@@ -13,15 +14,22 @@ int main() {
     int n;
     cin >> n;
     
-    unordered_set<int> thing;
+    vector<int> list(n);
 
-    int temp;
     for (int i = 0; i < n; ++i) {
-        cin >> temp;
-        thing.insert(temp);
+        cin >> list[i];
     }
 
-    cout << thing.size() << '\n';
+    sort(list.begin(), list.end());
+
+    int count = 1;
+    for (int i = 1; i < n; ++i) {
+        if (list[i] != list[i - 1]) {
+            count++;
+        }
+    }
+
+    cout << count << '\n';
 
     return 0;
 }
